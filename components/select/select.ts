@@ -75,6 +75,31 @@ let styles = `
   outline: 0;
   margin: 0 3px 3px 0;
 }
+
+
+.ui-select-container {
+  display: table;
+}
+
+.form-inline .input-group .form-control.ui-select-search, .ui-select-match, .form-inline .input-group .form-control.ui-select-toggle {
+  width: 100%;
+}
+
+.ui-select-multiple .ui-select-search {
+  width: auto;
+}
+
+.ui-select-close-button {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: none;
+  position: absolute;
+  background: transparent;
+  font-weight: bold;
+  z-index: 4;
+  font-size: 14px;
+}
 `;
 
 let optionsTemplate = `
@@ -241,7 +266,7 @@ export class SelectComponent implements OnInit {
   private isOpen(): boolean {
     return this.optionsOpened && this.options && this.options.length > 0;
   }
-  
+
   public inputEvent(e:any, isUpMode:boolean = false):void {
     // tab
     if (e.keyCode === 9) {

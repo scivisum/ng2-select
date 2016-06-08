@@ -14,3 +14,7 @@ coverage
 demo
 demo-build
 webpack.config.js
+
+#typescript sources
+tslint.json
+tsconfig.json

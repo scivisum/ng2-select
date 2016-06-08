@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
-import {ButtonCheckbox} from 'ng2-bootstrap/ng2-bootstrap';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
+import {BUTTON_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 
 import {SELECT_DIRECTIVES} from '../../../ng2-select';
 
@@ -10,13 +10,10 @@ let template = require('./children-demo.html');
 @Component({
   selector: 'children-demo',
   template: template,
-  directives: [SELECT_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES, ButtonCheckbox]
+  directives: [SELECT_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES, BUTTON_DIRECTIVES ]
 })
-export class ChildrenDemo {
-  private value:any = {};
-  private _disabledV:string = '0';
-  private disabled:boolean = false;
-  private items:Array<any> = [
+export class ChildrenDemoComponent {
+  public items:Array<any> = [
     {
       text: 'Austria',
       children: [
@@ -192,6 +189,9 @@ export class ChildrenDemo {
       ]
     }
   ];
+  private value:any = {};
+  private _disabledV:string = '0';
+  private disabled:boolean = false;
 
   private get disabledV():string {
     return this._disabledV;
@@ -202,15 +202,15 @@ export class ChildrenDemo {
     this.disabled = this._disabledV === '1';
   }
 
-  private selected(value:any) {
+  public selected(value:any):void {
     console.log('Selected value is: ', value);
   }
 
-  private removed(value:any) {
+  public removed(value:any):void {
     console.log('Removed value is: ', value);
   }
 
-  private refreshValue(value:any) {
+  public refreshValue(value:any):void {
     this.value = value;
   }
 }

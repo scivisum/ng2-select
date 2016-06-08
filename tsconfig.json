@@ -18,5 +18,9 @@
   "files": [
     "./typings/browser.d.ts",
     "./ng2-select.ts"
-  ]
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": { "rewriteTsconfig": false }
 }
+

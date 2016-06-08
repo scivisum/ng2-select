@@ -1,12 +1,12 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 
 import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
-import {SingleDemo} from './select/single-demo';
-import {MultipleDemo} from './select/multiple-demo';
-import {ChildrenDemo} from './select/children-demo';
-import {RichDemo} from './select/rich-demo';
+import {SingleDemoComponent} from './select/single-demo';
+import {MultipleDemoComponent} from './select/multiple-demo';
+import {ChildrenDemoComponent} from './select/children-demo';
+import {RichDemoComponent} from './select/rich-demo';
 
 let name = 'Select';
 // webpack html imports
@@ -36,13 +36,12 @@ let tabDesc:Array<any> = [
 ];
 
 let tabsContent:string = ``;
-tabDesc.forEach(desc => {
+tabDesc.forEach((desc:any) => {
   tabsContent += `
-  <div *ngIf="currentHeading === '${desc.heading}'">
-    <${desc.heading.toLowerCase()}-demo>
-    </${desc.heading.toLowerCase()}-demo>
-  </div>
-<pre>{{ currentHeading }}</pre>
+<div *ngIf="currentHeading === '${desc.heading}'">
+  <${desc.heading.toLowerCase()}-demo>
+  </${desc.heading.toLowerCase()}-demo>
+</div>
 <tab heading="${desc.heading}" (select)="select_zzz($event)">
   <div class="card card-block panel panel-default panel-body">
     <br>
@@ -86,12 +85,12 @@ tabDesc.forEach(desc => {
     </div>
   </section>
   `,
-  directives: [SingleDemo, MultipleDemo, ChildrenDemo, RichDemo, TAB_DIRECTIVES, CORE_DIRECTIVES]
+  directives: [SingleDemoComponent, MultipleDemoComponent, ChildrenDemoComponent, RichDemoComponent, TAB_DIRECTIVES, CORE_DIRECTIVES]
 })
-export class SelectSection {
+export class SelectSectionComponent {
   public currentHeading:string = 'Single';
 
-  public select_zzz(e:any) {
+  public select_zzz(e:any):void {
     if (e.heading) {
       this.currentHeading = e.heading;
     }

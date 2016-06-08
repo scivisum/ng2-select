@@ -8,15 +8,6 @@ import {OffClickDirective} from './off-click';
 let styles = `
 .ui-select-toggle {
   position: relative;
-
-  /* hardcoded, should use variable from bootstrap */
-  padding: 0.375rem 0.75rem;
-}
-
-/* Fix Bootstrap dropdown position when inside a input-group */
-.input-group > .dropdown {
-  /* Instead of relative */
-  position: static;
 }
 
 .ui-select-match > .btn {
@@ -24,7 +15,7 @@ let styles = `
   text-align: left !important;
 }
 
-.ui-select-match > .caret {
+.ui-select-match .caret {
   position: absolute;
   top: 45%;
   right: 15px;
@@ -49,6 +40,36 @@ let styles = `
   max-height: 200px;
   overflow-x: hidden;
   margin-top: 0;
+}
+
+.ui-select-choices-row>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+.ui-select-choices-row>a:hover, .ui-select-choices-row>a:focus {
+    text-decoration: none;
+    color: #262626;
+    background-color: #f5f5f5;
+}
+
+.ui-select-choices-row.active>a {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #428bca;
+}
+
+.ui-select-choices-row.disabled>a,
+.ui-select-choices-row.active.disabled>a {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
 }
 
 .ui-select-multiple .ui-select-choices {
@@ -81,10 +102,6 @@ let styles = `
   display: table;
 }
 
-.form-inline .input-group .form-control.ui-select-search, .ui-select-match, .form-inline .input-group .form-control.ui-select-toggle {
-  width: 100%;
-}
-
 .ui-select-multiple .ui-select-search {
   width: auto;
 }
@@ -99,6 +116,7 @@ let styles = `
   font-weight: bold;
   z-index: 4;
   font-size: 14px;
+  padding-right: 16px
 }
 `;
 
